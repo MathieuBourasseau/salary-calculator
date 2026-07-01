@@ -207,8 +207,17 @@
   .table {
     display: table;
   }
+  .h-1 {
+    height: var(--spacing);
+  }
+  .h-\[1px\] {
+    height: 1px;
+  }
   .w-full {
     width: 100%;
+  }
+  .flex-1 {
+    flex: 1;
   }
   .border-collapse {
     border-collapse: collapse;
@@ -266,6 +275,9 @@
   }
   .bg-black {
     background-color: var(--color-black);
+  }
+  .bg-dark-grey {
+    background-color: var(--color-dark-grey);
   }
   .bg-light-grey {
     background-color: var(--color-light-grey);

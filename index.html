@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Calculateur de salaire</title>
-    <link href="./dist/output.css" rel="stylesheet"> 
+    <link href="./dist/output.css" rel="stylesheet">
     <script src="./js/main.js" defer></script>
 </head>
-<body 
-    class="bg-light-grey"
->
+
+<body class="bg-light-grey">
 
     <!-- Header and nav links -->
     <!-- The first line of each class is for mobile design. -->
@@ -16,36 +16,22 @@
     <!-- The last line is for desktop. -->
     <!-- When "md" or "lg" is not included in the class, it means that the style is applied for all views. -->
 
-    <header
-        class="
+    <header class="
             border-b-1 border-dark-grey
-        "
-    >
-        <nav
-            class="
+        ">
+        <nav class="
                 flex w-full p-4 text-sm justify-between items-center font-geist font-medium cursor-pointer
-                "   
-        >
-            <div
-                class="flex items-center gap-2"
-            >
+                ">
+            <div class="flex items-center gap-2">
                 <img src="./public/img/Background.svg" alt="Logo de l'entreprise Salarium">
-                <a 
-                    href="#"
-                    class="hidden"
-                >Salarium.fr</a>
+                <a href="#" class="hidden">Salarium.fr</a>
             </div>
-            <div
-                class="flex items-center gap-2"
-            >
+            <div class="flex items-center gap-2">
                 <a href="#">Outils</a>
                 <a href="#">Guides</a>
                 <a href="#">Tarifs</a>
                 <a href="#">A propos</a>
-                <a 
-                    class="text-white py-1 px-1 bg-black rounded-xs"
-                    href="#"
-                    >Contact</a>
+                <a class="text-white py-1 px-1 bg-black rounded-xs" href="#">Contact</a>
             </div>
         </nav>
     </header>
@@ -53,75 +39,54 @@
     <!-- Main and section part -->
     <main>
 
-        <section
-            class="
+        <section class="
                 flex flex-col py-6 px-4 gap-2
-            "
-        >
+            ">
             <!-- Text above the converter -->
-            <div
-                class="
+            <div class="
                     flex flex-col gap-4
-                "
-            >
+                ">
                 <p class="text-sm">outil calculateur</p>
-                <h1
-                class="
+                <h1 class="
                     font-instrument-serif font-normal text-2xl 
-                    "
-                >
-                 Convertissez votre <span class="italic">salaire brut en net</span>, en un coup d'oeil.
+                    ">
+                    Convertissez votre <span class="italic">salaire brut en net</span>, en un coup d'oeil.
                 </h1>
-                <p
-                    class="
+                <p class="
                         text-sm text-text-grey
-                        "
-                >Saisissez un montant dans l'un ou l'autre champ - la conversion se fait automatiquement, selon votre statut et la période choisie. </p>
+                        ">Saisissez un montant dans l'un ou l'autre champ - la conversion se fait automatiquement,
+                    selon votre statut et la période choisie. </p>
 
             </div>
 
             <!-- Bloc with the converter -->
-            <div
-                class="
+            <div class="
                     bg-white rounded-sm p-2 border-1 border-dark-grey
-                "
-            >
+                ">
 
                 <!-- First container with user choices -->
-                <div
-                    class="
+                <div class="
                         flex flex-col gap-4 font-geist
-                    "
-                >
+                    ">
 
                     <!-- Categories part -->
-                    <div
-                        class="flex justify-between items-center"
-                    >
-                        <div
-                            class="
+                    <div class="flex justify-between items-center">
+                        <div class="
                                 flex items-center bg-medium-grey p-1 text-sm gap-2 rounded-md font-geist
-                            "
-                        >
-                            <p
-                                class="
+                            ">
+                            <p class="
                                     p-1 bg-white rounded-sm font-medium
-                                "
-                            >Non-cadre</p>
+                                ">Non-cadre</p>
                             <p>Cadre</p>
                         </div>
 
                         <!-- Annual or mensual salary part -->
-                        <div
-                            class="
+                        <div class="
                                 flex gap-2 bg-medium-grey p-1 rounded-md items-center
-                            "
-                        >
-                            <p
-                                class="
+                            ">
+                            <p class="
                                     p-1 bg-white rounded-sm font-medium
-                                "
-                            >Mensuel</p>
+                                ">Mensuel</p>
                             <p>Annuel</p>
                         </div>
                     </div>
@@ -129,24 +94,18 @@
                     <!-- Raw salary part titles -->
                     <div>
 
-                        <div
-                            class="
+                        <div class="
                                 flex justify-between text-sm text-text-grey
-                            "
-                        >
+                            ">
                             <p>Salaire brut</p>
                             <p>avant cotisations salariales</p>
                         </div>
 
                         <!-- User raw salary input -->
-                        <div
-                            class="
+                        <div class="
                                 border-1 border-dark-grey rounded-sm flex justify-between p-2 
-                                "
-                        >
-                            <input 
-                                type="text" 
-                                class="
+                                ">
+                            <input type="text" class="
                                     w-full outline-none
                                 ">
                             <img src="./public/img/€.svg" alt="logo euro pour convertir son salaire">
@@ -155,21 +114,27 @@
                     </div>
 
                     <!-- Separating part between raw salary and take home salary-->
-
-
+                    <div
+                        class="flex justify-between items-center"
+                    >
+                        <div class="flex-1 h-[1px] bg-dark-grey"></div>
+                        <button
+                            class="px-2"
+                        >
+                            <img src="./public/img/Button - Inverser brut et net.svg" alt="Bouton pour inverser">
+                        </button>
+                        <div class="flex-1 h-[1px] bg-dark-grey"></div>
+                    </div>
                 </div>
 
             </div>
 
-            <!-- Bloc with sentence below the converter -->
-            <div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+
+
         </section>
 
 
     </main>
 </body>
+
 </html>
