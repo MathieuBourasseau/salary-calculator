@@ -4,12 +4,18 @@
 
 @theme {
 
-    /* Polices */
+    /* Polices imported from Google Fonts */
     --font-geist: 'Geist', sans-serif;
     --font-instrument-serif: 'Instrument Serif', serif;
     
+    /* Custom colors */
     --color-light-grey: #FBFAF7;
     --color-medium-grey: #F7F3E8;
-    
+    --color-dark-grey: #E8E6DF;
+
+    /* Custom spacing */
+    --spacing-9px: 9px;
+    --spacing-14px: 14px;
+
 }
 
