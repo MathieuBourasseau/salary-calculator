@@ -13,15 +13,18 @@
     --spacing: 0.25rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --font-weight-normal: 400;
     --font-weight-medium: 500;
     --radius-xs: 0.125rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --font-geist: 'Geist', sans-serif;
+    --font-instrument-serif: 'Instrument Serif', serif;
     --color-light-grey: #FBFAF7;
     --color-dark-grey: #E8E6DF;
-    --spacing-9px: 9px;
-    --spacing-14px: 14px;
+    --color-text-grey: #6B6A66;
   }
 }
 @layer base {
@@ -194,6 +197,9 @@
   .resize {
     resize: both;
   }
+  .flex-col {
+    flex-direction: column;
+  }
   .items-center {
     align-items: center;
   }
@@ -235,26 +241,24 @@
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
-  .px-14 {
-    padding-inline: calc(var(--spacing) * 14);
-  }
-  .px-14px {
-    padding-inline: var(--spacing-14px);
-  }
   .py-1 {
     padding-block: var(--spacing);
   }
-  .py-2 {
-    padding-block: calc(var(--spacing) * 2);
+  .py-6 {
+    padding-block: calc(var(--spacing) * 6);
   }
-  .py-9 {
-    padding-block: calc(var(--spacing) * 9);
-  }
-  .py-9px {
-    padding-block: var(--spacing-9px);
+  .pt-6 {
+    padding-top: calc(var(--spacing) * 6);
   }
   .font-geist {
     font-family: var(--font-geist);
+  }
+  .font-instrument-serif {
+    font-family: var(--font-instrument-serif);
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
   }
   .text-sm {
     font-size: var(--text-sm);
@@ -264,8 +268,18 @@
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
   }
+  .font-normal {
+    --tw-font-weight: var(--font-weight-normal);
+    font-weight: var(--font-weight-normal);
+  }
+  .text-text-grey {
+    color: var(--color-text-grey);
+  }
   .text-white {
     color: var(--color-white);
+  }
+  .italic {
+    font-style: italic;
   }
   .underline {
     text-decoration-line: underline;
