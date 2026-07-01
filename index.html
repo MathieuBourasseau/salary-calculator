@@ -88,7 +88,11 @@
             >
 
                 <!-- First container with user choices -->
-                <div>
+                <div
+                    class="
+                        flex flex-col gap-4 font-geist
+                    "
+                >
 
                     <!-- Categories part -->
                     <div
@@ -126,15 +130,26 @@
                     <div>
 
                         <div
+                            class="
+                                flex justify-between text-sm text-text-grey
+                            "
                         >
                             <p>Salaire brut</p>
                             <p>avant cotisations salariales</p>
                         </div>
 
                         <!-- User raw salary input -->
-                        <div>
-                            <input type="text">
-                            <span>€</span>
+                        <div
+                            class="
+                                border-1 border-dark-grey rounded-sm flex justify-between p-2 
+                                "
+                        >
+                            <input 
+                                type="text" 
+                                class="
+                                    w-full outline-none
+                                ">
+                            <img src="./public/img/€.svg" alt="logo euro pour convertir son salaire">
                         </div>
 
                     </div>
