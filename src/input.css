@@ -1,6 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Instrument+Serif:ital@0;1&display=swap");
+
 @import "tailwindcss";
 
 @theme {
+
+    /* Polices */
+    --font-geist: 'Geist', sans-serif;
+    --font-instrument-serif: 'Instrument Serif', serif;
+    
     --color-light-grey: #FBFAF7;
     --color-medium-grey: #F7F3E8;
 }
+
