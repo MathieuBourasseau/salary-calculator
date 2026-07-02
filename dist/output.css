@@ -439,6 +439,36 @@
     --tw-outline-style: none;
     outline-style: none;
   }
+  .md\:mx-auto {
+    @media (width >= 48rem) {
+      margin-inline: auto;
+    }
+  }
+  .md\:block {
+    @media (width >= 48rem) {
+      display: block;
+    }
+  }
+  .md\:w-full {
+    @media (width >= 48rem) {
+      width: 100%;
+    }
+  }
+  .md\:max-w-2\/3 {
+    @media (width >= 48rem) {
+      max-width: calc(2 / 3 * 100%);
+    }
+  }
+  .md\:justify-center {
+    @media (width >= 48rem) {
+      justify-content: center;
+    }
+  }
+  .md\:gap-1 {
+    @media (width >= 48rem) {
+      gap: var(--spacing);
+    }
+  }
 }
 @property --tw-border-style {
   syntax: "*";

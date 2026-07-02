@@ -17,17 +17,24 @@
     <!-- The last line is for desktop. -->
     <!-- When "md" or "lg" is not included in the class, it means that the style is applied for all views. -->
 
-    <header class="
-            border-b-1 border-dark-grey
-        ">
+    <!-- HEADER PART -->
+    <header class="border-b-1 border-dark-grey">
         <nav class="
-                flex w-full p-4 text-sm justify-between items-center font-geist font-medium cursor-pointer
-                ">
+            flex w-full p-4 text-sm justify-between items-center font-geist font-medium cursor-pointer
+            md:max-w-2/3 md:w-full md:mx-auto md:gap-1"
+        >
             <div class="flex items-center gap-2">
                 <img src="./public/img/Background.svg" alt="Logo de l'entreprise Salarium">
-                <a href="#" class="hidden">Salarium.fr</a>
+                <a 
+                    href="#" 
+                    class="
+                        hidden
+                        md:block
+                    ">
+                        Salarium.fr
+                </a>
             </div>
-            <ul class="flex items-center gap-2">
+            <ul class="flex items-center gap-2 text-sm">
                 <li><a href="#">Outils</a></li>
                 <li><a href="#">Guides</a></li>
                 <li><a href="#">Tarifs</a></li>
