@@ -79,15 +79,15 @@
                         <fieldset class="flex items-center bg-medium-grey p-1 text-sm gap-2 rounded-md font-geist">
                             <!-- Legend is only readable by screen reader -->
                             <legend class="sr-only">Statut</legend>
-                            <button class="p-1 bg-white rounded-sm font-medium">Non-cadre</button>
-                            <button>Cadre</button>
+                            <button type="button" class="p-1 bg-white rounded-sm font-medium">Non-cadre</button>
+                            <button type="button">Cadre</button>
                         </fieldset>
 
                         <!-- PERIODE -->
                         <fieldset class="flex gap-2 bg-medium-grey p-1 rounded-md items-center text-sm">
                             <legend class="sr-only">Périodicité</legend>
-                            <button class="p-1 bg-white rounded-sm font-medium">Mensuel</button>
-                            <button>Annuel</button>
+                            <button type="button" class="p-1 bg-white rounded-sm font-medium">Mensuel</button>
+                            <button type="button">Annuel</button>
                         </fieldset>
                     </div>
 
@@ -113,10 +113,7 @@
                     <!-- CONVERTER BUTTON PART -->
                     <div class="flex justify-between items-center">
                         <div class="flex-1 h-[1px] bg-dark-grey"></div>
-                        <button 
-                            class="px-2"
-                            type="button"
-                        >
+                        <button class="px-2" type="button">
                             <img src="./public/img/Button - Inverser brut et net.svg" alt="Bouton pour inverser">
                         </button>
                         <div class="flex-1 h-[1px] bg-dark-grey"></div>
@@ -136,7 +133,7 @@
                                 type="text" 
                                 class="w-full outline-none font-instrument-serif text-lg"
                                 id="net-pay"
-                                >
+                            >
                             <img src="./public/img/€.svg" alt="logo euro pour convertir son salaire">
                         </div>
 
@@ -144,15 +141,12 @@
                 </div>
 
                 <!-- SECOND PART : CONVERTER RESULTS -->
-
                 <div>
 
                     <!-- CONTAINER WITH LIGHT BROWN BACKGROUND -->
-
                     <div class="pb-8">
 
                         <!-- TOP PART -->
-
                         <div class="
                                 flex flex-col gap-[13px] border-b-1 border-dark-grey bg-light-brown px-8 py-4
                             ">
