@@ -509,6 +509,16 @@
       max-width: var(--container-desktop-content);
     }
   }
+  .lg\:rounded {
+    @media (width >= 64rem) {
+      border-radius: 0.25rem;
+    }
+  }
+  .lg\:rounded-\[14px\] {
+    @media (width >= 64rem) {
+      border-radius: 14px;
+    }
+  }
   .lg\:text-22px {
     @media (width >= 64rem) {
       font-size: var(--text-22px);
