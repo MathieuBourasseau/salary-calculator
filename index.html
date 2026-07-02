@@ -81,11 +81,10 @@
             <form class="
                 flex flex-col gap-4 bg-white rounded-sm p-2 border-1 border-dark-grey shadow-card
                 md:p-4 md:rounded-lg
-                lg:rounded-[14px] lg:grid lg:grid-cols-2 lg:p-4
-            ">
+                lg:rounded-[14px] lg:grid lg:grid-cols-2 lg:py-4 lg:pl-32px"
+            >
 
                 <!-- FIRST CONTAINER WITH USER OPTIONS -->
-
                 <div class="flex flex-col gap-4 font-geist lg:py-8">
 
                     <!-- CATEGORIES PART -->
@@ -106,20 +105,23 @@
                     </div>
 
                     <!-- RAW SALARY PART -->
-                    <div>
+                    <div class="lg:flex lg:flex-col gap-2">
                         <div class="flex justify-between text-sm text-text-grey">
                             <label for="raw-salary">Salaire brut</label>
                             <span>avant cotisations salariales</span>
                         </div>
 
                         <!-- USER RAW SALARY INPUT -->
-                        <div class="border-1 border-dark-grey rounded-sm flex justify-between p-2">
+                        <div class="
+                            border-1 border-dark-grey rounded-sm flex justify-between p-2 
+                            lg:rounded-lg lg:flex lg:items-center"
+                        >
                             <input 
                                 type="text" 
-                                class="w-full outline-none font-instrument-serif text-lg lg:text-34px"
+                                class="p-2 w-full outline-none font-instrument-serif text-lg lg:text-34px"
                                 id="raw-salary"
                             >
-                            <img src="./public/img/€.svg" alt="logo euro pour convertir son salaire">
+                            <img src="./public/img/€.svg" class="w-5 h-5 shrink-0" alt="logo euro pour convertir son salaire">
                         </div>
 
                     </div>
@@ -133,7 +135,7 @@
                         <div class="flex-1 h-[1px] bg-dark-grey"></div>
                     </div>
 
-                    <div>
+                    <div class="lg:flex lg:flex-col gap-2"">
 
                         <!-- NET PAY PART-->
                         <div class="flex justify-between text-sm text-text-grey">
@@ -142,13 +144,16 @@
                         </div>
 
                         <!-- USER NET PAY INPUT -->
-                        <div class="border-1 border-dark-grey rounded-sm flex justify-between p-2">
+                        <div class="
+                            border-1 border-dark-grey rounded-sm flex justify-between p-2 
+                            lg:rounded-lg lg:flex lg:items-center"
+                        >
                             <input 
                                 type="text" 
-                                class="w-full outline-none font-instrument-serif text-lg lg:text-34px"
+                                class="p-2 w-full outline-none font-instrument-serif text-lg lg:text-34px"
                                 id="net-pay"
                             >
-                            <img src="./public/img/€.svg" alt="logo euro pour convertir son salaire">
+                            <img src="./public/img/€.svg" class="w-5 h-5 shrink-0" alt="logo euro pour convertir son salaire">
                         </div>
 
                     </div>
@@ -156,9 +161,8 @@
 
                 <!-- SECOND PART : CONVERTER RESULTS -->
                 <div>
-
                     <!-- CONTAINER WITH LIGHT BROWN BACKGROUND -->
-                    <div class="pb-8">
+                    <div class="pb-8 lg:">
 
                         <!-- TOP PART -->
                         <div class="
