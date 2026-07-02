@@ -79,22 +79,18 @@
                     ">
 
                     <!-- CATEGORIES PART -->
-
+                     
                     <div class="flex justify-between items-center">
-                        <div class="
-                                flex items-center bg-medium-grey p-1 text-sm gap-2 rounded-md font-geist
-                        ">
-                            <p class="
-                                    p-1 bg-white rounded-sm font-medium
-                                ">Non-cadre</p>
-                            <p>Cadre</p>
-                        </div>
+                        <fieldset class="flex items-center bg-medium-grey p-1 text-sm gap-2 rounded-md font-geist">
+                            <!-- Legend is only readable by to screen reader -->
+                            <legend class="sr-only">Statut</legend>
+                            <button class="p-1 bg-white rounded-sm font-medium">Non-cadre</button>
+                            <button>Cadre</button>
+                        </fieldset>
 
                         <!-- ANNUAL OR MENSUAL SALARY PART -->
 
-                        <div class="
-                                flex gap-2 bg-medium-grey p-1 rounded-md items-center
-                            ">
+                        <div class="flex gap-2 bg-medium-grey p-1 rounded-md items-center">
                             <p class="  
                                     p-1 bg-white rounded-sm font-medium
                                 ">Mensuel</p>
