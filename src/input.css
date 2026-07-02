@@ -25,8 +25,11 @@
     --text-11px : 11px;
     --text-12px : 12px;
     --text-13px: 13px;
-    --text-17px: 17px
+    --text-17px: 17px;
     --text-22px: 22px;
+
+    /* Custom shadows */
+    --shadow-card: 0px 8px 24px -12px #0E0E0D1F, 0px 1px 0px 0px #0E0E0D0A;
 
 }
 
