@@ -498,6 +498,11 @@
       max-width: var(--container-desktop-content);
     }
   }
+  .lg\:text-22px {
+    @media (width >= 64rem) {
+      font-size: var(--text-22px);
+    }
+  }
 }
 @property --tw-border-style {
   syntax: "*";
