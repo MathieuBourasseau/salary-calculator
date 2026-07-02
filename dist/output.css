@@ -237,6 +237,9 @@
   .gap-4 {
     gap: calc(var(--spacing) * 4);
   }
+  .gap-\[2px\] {
+    gap: 2px;
+  }
   .gap-\[4px\] {
     gap: 4px;
   }
