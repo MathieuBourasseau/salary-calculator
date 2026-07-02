@@ -43,6 +43,7 @@
     --text-13px: 13px;
     --text-17px: 17px;
     --text-22px: 22px;
+    --text-56px: 56px;
     --container-desktop-content: 1120px;
   }
 }
@@ -493,6 +494,16 @@
       font-size: var(--text-17px);
     }
   }
+  .lg\:max-w-2 {
+    @media (width >= 64rem) {
+      max-width: calc(var(--spacing) * 2);
+    }
+  }
+  .lg\:max-w-2xl {
+    @media (width >= 64rem) {
+      max-width: var(--container-2xl);
+    }
+  }
   .lg\:max-w-desktop-content {
     @media (width >= 64rem) {
       max-width: var(--container-desktop-content);
@@ -501,6 +512,11 @@
   .lg\:text-22px {
     @media (width >= 64rem) {
       font-size: var(--text-22px);
+    }
+  }
+  .lg\:text-56px {
+    @media (width >= 64rem) {
+      font-size: var(--text-56px);
     }
   }
 }
