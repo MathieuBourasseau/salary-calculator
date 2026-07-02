@@ -31,5 +31,7 @@
     /* Custom shadows */
     --shadow-card: 0px 8px 24px -12px #0E0E0D1F, 0px 1px 0px 0px #0E0E0D0A;
 
+    /* Width */
+    --container-desktop-content: 1120px;
 }
 
