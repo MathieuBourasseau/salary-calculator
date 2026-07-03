@@ -4,19 +4,20 @@ let currentRate = 22;
 // --- ARROW FUNCTION TO UPDATE CONVERTION --- 
 
 const updateNetFromRaw = () => {
-
-    const currentRawSalary = rawSalaryElt.value;
     
+    console.log("currentRate =", currentRate, "| raw =", rawSalaryElt.value);
+    const currentRawSalary = rawSalaryElt.value;
+
+
     const newNetSalary = currentRawSalary * (1 - currentRate/100);
     const newContributions = currentRawSalary - newNetSalary;
     const newAnnualNetSalary = newNetSalary * 12;
 
-    netSalaryElt.value = newNetSalary;
-    contributionsElt.textContent = newContributions;
-    annualAmountElt.textContent = newAnnualNetSalary;
+    netSalaryElt.value = newNetSalary.toFixed(2);
+    contributionsElt.textContent = newContributions.toFixed(2);
+    annualAmountElt.textContent = newAnnualNetSalary.toFixed(2);
 
 }
-
 
 
 // GET ALL NECESSARY DOM ELEMENT FOR TOGGLE PART
@@ -100,13 +101,13 @@ netSalaryElt.addEventListener("input", () => {
     const annualNetSalary = netSalaryValue * 12;
 
     // Display the raw salary into the raw salary input
-    rawSalaryElt.value = rawSalaryConverted;
+    rawSalaryElt.value = rawSalaryConverted.toFixed(2);
 
     // Display contributions
-    contributionsElt.textContent = contributions;
+    contributionsElt.textContent = contributions.toFixed(2);
 
     // Display annual net salary
-    annualAmountElt.textContent = annualNetSalary;
+    annualAmountElt.textContent = annualNetSalary.toFixed(2);
 
 })
 
