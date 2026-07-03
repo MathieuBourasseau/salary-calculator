@@ -22,6 +22,9 @@ fieldsetElts.forEach((fieldset) => {
 
                 // Add the class only on the button clicked
                 btnClicked.classList.add("toggle-active");
+
+                // Test of data-rate 
+                console.log(btnClicked.dataset.rate)
             }
         )
     })
