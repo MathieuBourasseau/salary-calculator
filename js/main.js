@@ -61,4 +61,8 @@ fieldsetElts.forEach((fieldset) => {
 
 // CALCULATE SALARY PART
 
+rawSalaryElt.addEventListener("input", ()=> {
+    console.log(rawSalaryElt.value)
+})
+
 
