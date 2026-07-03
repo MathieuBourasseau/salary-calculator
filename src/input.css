@@ -37,5 +37,11 @@
 
     /* Width */
     --container-desktop-content: 1120px;
+
+}
+
+/* Custom class for toggle button */
+.toggle-active {
+    @apply p-1 bg-white rounded-sm font-medium;
 }
 

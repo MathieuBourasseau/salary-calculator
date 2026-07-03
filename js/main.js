@@ -1,9 +1,32 @@
 // GET ALL NECESSARY DOM ELEMENT
 
 // Toggles buttons
+// Get the two fieldsets
 const fieldsetElts = document.querySelectorAll(".toggle-group");
+
+// Get the buttons inside each of them
 fieldsetElts.forEach((fieldset) => {
-    console.log(fieldset.querySelectorAll("button"))
+    const btnElts = fieldset.querySelectorAll("button");
+
+    // Add click event on them 
+    btnElts.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+
+            // Button clicked
+            const btnClicked = e.target;
+
+            // Remove the class from every buttons
+            btnElts.forEach((btn) => {
+                btn.classList.remove("toggle-active")
+            })
+
+            // Add the class only on the button clicked
+            btnClicked.classList.add("toggle-active");
+
+            console.log("Je suis un bouton.")
+        }
+        )
+    })
 });
 
 // Raw salary input
