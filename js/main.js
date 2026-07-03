@@ -64,10 +64,13 @@ fieldsetElts.forEach((fieldset) => {
 rawSalaryElt.addEventListener("input", ()=> {
 
     // Convert string into number
-    const userValue = Number(rawSalaryElt.value)
-    console.log(rawSalaryElt.value)
-    console.log(typeof(userValue))
-    
+    const rawSalaryValue = Number(rawSalaryElt.value);
+
+    // Calculate net salary
+    const netSalaryValue = rawSalaryValue * (1 - currentRate/100);
+    console.log(netSalaryValue);
+
+
 })
 
 
