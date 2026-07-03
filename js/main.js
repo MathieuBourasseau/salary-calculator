@@ -12,19 +12,17 @@ fieldsetElts.forEach((fieldset) => {
     btnElts.forEach((btn) => {
         btn.addEventListener("click", (e) => {
 
-            // Button clicked
-            const btnClicked = e.target;
+                // Button clicked
+                const btnClicked = e.target;
 
-            // Remove the class from every buttons
-            btnElts.forEach((btn) => {
-                btn.classList.remove("toggle-active")
-            })
+                // Remove the class from every buttons
+                btnElts.forEach((btn) => {
+                    btn.classList.remove("toggle-active")
+                })
 
-            // Add the class only on the button clicked
-            btnClicked.classList.add("toggle-active");
-
-            console.log("Je suis un bouton.")
-        }
+                // Add the class only on the button clicked
+                btnClicked.classList.add("toggle-active");
+            }
         )
     })
 });
