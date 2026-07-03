@@ -11,11 +11,11 @@
 
 <body class="bg-light-grey">
 
-    <!-- Header and nav links -->
-    <!-- The first line of each class is for mobile design. -->
-    <!-- The second line of each class is for tablet. -->
-    <!-- The last line is for desktop. -->
-    <!-- When "md" or "lg" is not included in the class, it means that the style is applied for all views. -->
+    <!-- Explanations for the style : -->
+    <!-- When there is "md" in the class, it is the style for tablet  -->
+    <!-- When there is "lg" in the class, it is the style for desktop  -->
+    <!-- When nothing special is written it means that the style is for mobile, tablets and desktop  -->
+
 
     <!-- HEADER PART -->
     <header class="border-b-1 border-dark-grey">
@@ -27,7 +27,7 @@
             <div class="flex items-center gap-2">
                 <img src="./public/img/Background.svg" alt="Logo de l'entreprise Salarium">
                 <a href="#" class="hidden md:block font-instrument-serif font-normal text-base lg:text-22px">
-                        Salarium<span class="text-text-grey italic text-11px md:text-sm">.fr</span>
+                    Salarium<span class="text-text-grey italic text-11px md:text-sm">.fr</span>
                 </a>
             </div>
 
@@ -41,22 +41,13 @@
         </nav>
     </header>
 
-    <!-- Main and section part -->
-    <main class="
-        max-w-2xl mx-auto
-        lg:max-w-desktop-content"
-    >
+    <!-- MAIN AND SECTION PART -->
+    <main class="max-w-2xl mx-auto lg:max-w-desktop-content">
 
-        <section class="
-            flex flex-col py-6 px-4 gap-2
-            md:gap-4"
-        >
+        <section class="flex flex-col py-6 px-4 gap-2 md:gap-4">
 
             <!-- TEXT ABOVE CONVERTER -->
-            <div class="
-                flex flex-col gap-4
-                lg:max-w-2xl"
-            >
+            <div class="flex flex-col gap-4 lg:max-w-2xl">
                 <p class="flex items-center gap-2 text-12px uppercase text-text-grey">
                     <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
                     outil · calculateur
@@ -89,7 +80,7 @@
 
                     <!-- CATEGORIES PART -->
                     <div class="flex justify-between items-center">
-                        <fieldset class="flex items-center bg-medium-grey p-1 text-13px gap-2 rounded-md font-geist">
+                        <fieldset class="toggle-group flex items-center bg-medium-grey p-1 text-13px gap-2 rounded-md font-geist">
                             <!-- Legend is only readable by screen reader -->
                             <legend class="sr-only">Statut</legend>
                             <button type="button" class="p-1 bg-white rounded-sm font-medium">Non-cadre</button>
@@ -97,7 +88,7 @@
                         </fieldset>
 
                         <!-- PERIODE -->
-                        <fieldset class="flex gap-2 bg-medium-grey p-1 rounded-md items-center text-13px">
+                        <fieldset class="toggle-group flex gap-2 bg-medium-grey p-1 rounded-md items-center text-13px">
                             <legend class="sr-only">Périodicité</legend>
                             <button type="button" class="p-1 bg-white rounded-sm font-medium">Mensuel</button>
                             <button type="button">Annuel</button>
@@ -129,7 +120,7 @@
                     <!-- CONVERTER BUTTON PART -->
                     <div class="flex justify-between items-center">
                         <div class="flex-1 h-[1px] bg-dark-grey"></div>
-                        <button class="px-2" type="button">
+                        <button class="px-2" type="button" id="converter-button">
                             <img src="./public/img/Button - Inverser brut et net.svg" alt="Bouton pour inverser">
                         </button>
                         <div class="flex-1 h-[1px] bg-dark-grey"></div>
@@ -139,7 +130,7 @@
 
                         <!-- NET PAY PART-->
                         <div class="flex justify-between text-sm text-text-grey">
-                            <label for="net-pay">Salaire net</label>
+                            <label for="net-salary">Salaire net</label>
                             <span>avant impôt sur le revenu</span>
                         </div>
 
@@ -151,7 +142,7 @@
                             <input 
                                 type="text" 
                                 class="p-2 w-full outline-none font-instrument-serif text-lg lg:text-34px"
-                                id="net-pay"
+                                id="net-salary"
                             >
                             <img src="./public/img/€.svg" class="w-5 h-5 shrink-0" alt="logo euro pour convertir son salaire">
                         </div>
@@ -170,14 +161,16 @@
                             <p class="uppercase text-11px text-text-grey font-geist font-medium">Taux appliqué</p>
                             <p class="
                                 flex font-instrument-serif text-4xl font-normal
-                                lg:text-88px">
+                                lg:text-88px
+                                rate-applied"
+                            >
                                 22<span class="
                                     text-22px
                                     text-text-grey
                                     md:text-base
                                     lg:text-3xl lg:pt-4">%</span>
                             </p>
-                            <p class="text-13px text-text-grey mb-4 lg:max-w-1/2">Statut non-cadre — environ 22% de cotisations
+                            <p class="text-13px text-text-grey mb-4 lg:max-w-1/2">Statut non-cadre — environ <span class="rate-applied">22%</span> de cotisations
                                 salariales déduites du brut.</p>
                         </div>
 
@@ -196,7 +189,7 @@
                                     Cotisations
                                 </p>
                                 <div class="flex items-center">
-                                    <p class="text-22px font-instrument-serif">660</p>
+                                    <p class="text-22px font-instrument-serif" id="contributions">660</p>
                                     <img src="./public/img/second-euro-picto.svg" alt="symbole euro du convertisseur de salaires" class="w-3 h-3 shrink-0">
                                 </div>
                             </div>
@@ -209,7 +202,7 @@
                                     Sur 12 mois (net)
                                 </p>
                                 <div class="flex items-center">
-                                    <p class="text-22px font-instrument-serif">28 080</p>
+                                    <p class="text-22px font-instrument-serif" id="annual-amount">28 080</p>
                                     <img src="./public/img/second-euro-picto.svg" alt="symbole euros du convertisseur de salaire" class="w-3 h-3 shrink-0">
                                 </div>
                             </div>
@@ -263,5 +256,4 @@
         </div>
     </footer>
 </body>
-
 </html>
