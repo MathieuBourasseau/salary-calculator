@@ -72,11 +72,17 @@ rawSalaryElt.addEventListener("input", ()=> {
     // Calculate contributions
     const contributions = rawSalaryValue - netSalaryConverted;
 
+    // Calculate annual net salary
+    const annualNetSalary = netSalaryConverted * 12;
+
     // Display the result into the net salary input
     netSalaryElt.value = netSalaryConverted;
 
     // Display the contributions
     contributionsElt.textContent = contributions;
+
+    // Display annual net salary
+    annualAmountElt.textContent = annualNetSalary;
 })
 
 // --- CONVERT NET INTO RAW SALARY ---
