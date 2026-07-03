@@ -8,7 +8,7 @@ const fieldsetElts = document.querySelectorAll(".toggle-group");
 fieldsetElts.forEach((fieldset) => {
     const btnElts = fieldset.querySelectorAll("button");
 
-    // Add click event on them 
+    // Add click event on each buttons
     btnElts.forEach((btn) => {
         btn.addEventListener("click", (e) => {
 
