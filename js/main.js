@@ -1,4 +1,7 @@
-// GET ALL NECESSARY DOM ELEMENT
+// Rate applied
+let currentRate = 22;
+
+// GET ALL NECESSARY DOM ELEMENT FOR TOGGLE PART
 
 // Raw salary input
 const rawSalaryElt = document.getElementById("raw-salary");
@@ -30,29 +33,32 @@ fieldsetElts.forEach((fieldset) => {
     btnElts.forEach((btn) => {
         btn.addEventListener("click", (e) => {
 
-                // Button clicked
-                const btnClicked = e.target;
+            // Button clicked
+            const btnClicked = e.target;
 
-                // Remove the class from every buttons
-                btnElts.forEach((btn) => {
-                    btn.classList.remove("toggle-active")
+            // Remove the class from every buttons
+            btnElts.forEach((btn) => {
+                btn.classList.remove("toggle-active")
+            })
+
+            // Add the class only on the button clicked
+            btnClicked.classList.add("toggle-active");
+
+            // Update the rate data according to the button clicked
+            if (btnClicked.dataset.rate) {
+
+                // Rate update
+                currentRate = Number(btnClicked.dataset.rate);
+
+                // Get each rate
+                rateAppliedElts.forEach((rate) => {
+                    rate.textContent = btnClicked.dataset.rate;
                 })
-
-                // Add the class only on the button clicked
-                btnClicked.classList.add("toggle-active");
-
-                // Update the rate data according to the button clicked
-                if(btnClicked.dataset.rate){
-
-                    // Get each rate
-                    rateAppliedElts.forEach((rate) => {
-                        rate.textContent = btnClicked.dataset.rate;
-                    })
-
-
-                }
             }
-        )
+        })
     })
 });
+
+// CALCULATE SALARY PART
+
 
