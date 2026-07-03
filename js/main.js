@@ -62,7 +62,12 @@ fieldsetElts.forEach((fieldset) => {
 // CALCULATE SALARY PART
 
 rawSalaryElt.addEventListener("input", ()=> {
+
+    // Convert string into number
+    const userValue = Number(rawSalaryElt.value)
     console.log(rawSalaryElt.value)
+    console.log(typeof(userValue))
+    
 })
 
 
