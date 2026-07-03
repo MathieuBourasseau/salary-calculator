@@ -496,6 +496,11 @@
       display: block;
     }
   }
+  .md\:h-\[1px\] {
+    @media (width >= 48rem) {
+      height: 1px;
+    }
+  }
   .md\:gap-1 {
     @media (width >= 48rem) {
       gap: var(--spacing);
@@ -509,6 +514,11 @@
   .md\:rounded-lg {
     @media (width >= 48rem) {
       border-radius: var(--radius-lg);
+    }
+  }
+  .md\:bg-dark-grey {
+    @media (width >= 48rem) {
+      background-color: var(--color-dark-grey);
     }
   }
   .md\:p-4 {
