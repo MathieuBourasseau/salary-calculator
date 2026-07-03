@@ -59,7 +59,7 @@ fieldsetElts.forEach((fieldset) => {
     })
 });
 
-// CALCULATE SALARY PART
+// --- CONVERT RAW INTO NET SALARY --- 
 
 rawSalaryElt.addEventListener("input", ()=> {
 
@@ -67,10 +67,25 @@ rawSalaryElt.addEventListener("input", ()=> {
     const rawSalaryValue = Number(rawSalaryElt.value);
 
     // Calculate net salary
-    const netSalaryValue = rawSalaryValue * (1 - currentRate/100);
-    
+    const netSalaryConverted = rawSalaryValue * (1 - currentRate/100);
+
     // Display the result into the net salary input
-    netSalaryElt.value = netSalaryValue;
+    netSalaryElt.value = netSalaryConverted;
+})
+
+// --- CONVERT NET INTO RAW SALARY ---
+
+netSalaryElt.addEventListener("input", () => {
+
+    // Convert string into number
+    const netSalaryValue = Number(netSalaryElt.value);
+
+    // Calculate raw salary
+    const rawSalaryConverted = netSalaryValue / (1 - currentRate/100);
+
+    // Display the raw salary into the raw salary input
+    rawSalaryElt.value = rawSalaryConverted;
+
 })
 
 
