@@ -69,8 +69,14 @@ rawSalaryElt.addEventListener("input", ()=> {
     // Calculate net salary
     const netSalaryConverted = rawSalaryValue * (1 - currentRate/100);
 
+    // Calculate contributions
+    const contributions = rawSalaryValue - netSalaryConverted;
+
     // Display the result into the net salary input
     netSalaryElt.value = netSalaryConverted;
+
+    // Display the contributions
+    contributionsElt.textContent = contributions;
 })
 
 // --- CONVERT NET INTO RAW SALARY ---
@@ -87,5 +93,9 @@ netSalaryElt.addEventListener("input", () => {
     rawSalaryElt.value = rawSalaryConverted;
 
 })
+
+
+
+
 
 
