@@ -1,5 +1,23 @@
 // GET ALL NECESSARY DOM ELEMENT
 
+// Raw salary input
+const rawSalaryElt = document.getElementById("raw-salary");
+
+// Net salary input
+const netSalaryElt = document.getElementById("net-salary");
+
+// Rate applied
+const rateAppliedElts = document.querySelectorAll(".rate-applied");
+
+// Contributions
+const contributionsElt = document.getElementById("contributions");
+
+// On 12 months
+const annualAmountElt = document.getElementById("annual-amount");
+
+// Converter button
+const converterButtonElt = document.getElementById("converter-button");
+
 // Toggles buttons
 // Get the two fieldsets
 const fieldsetElts = document.querySelectorAll(".toggle-group");
@@ -23,27 +41,18 @@ fieldsetElts.forEach((fieldset) => {
                 // Add the class only on the button clicked
                 btnClicked.classList.add("toggle-active");
 
-                // Test of data-rate 
-                console.log(btnClicked.dataset.rate)
+                // Update the rate data according to the button clicked
+                if(btnClicked.dataset.rate){
+
+                    // Get each rate
+                    rateAppliedElts.forEach((rate) => {
+                        rate.textContent = btnClicked.dataset.rate;
+                    })
+
+
+                }
             }
         )
     })
 });
 
-// Raw salary input
-const rawSalaryElt = document.getElementById("raw-salary");
-
-// Net salary input
-const netSalaryElt = document.getElementById("net-salary");
-
-// Rate applied
-const rateAppliedElt = document.querySelectorAll(".rate-applied");
-
-// Contributions
-const contributionsElt = document.getElementById("contributions");
-
-// On 12 months
-const annualAmountElt = document.getElementById("annual-amount");
-
-// Converter button
-const converterButtonElt = document.getElementById("converter-button");
