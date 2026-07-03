@@ -1,6 +1,24 @@
 // Rate applied
 let currentRate = 22;
 
+// --- ARROW FUNCTION TO UPDATE CONVERTION --- 
+
+const updateNetFromRaw = () => {
+
+    const currentRawSalary = rawSalaryElt.value;
+    
+    const newNetSalary = currentRawSalary * (1 - currentRate/100);
+    const newContributions = currentRawSalary - newNetSalary;
+    const newAnnualNetSalary = newNetSalary * 12;
+
+    netSalaryElt.value = newNetSalary;
+    contributionsElt.textContent = newContributions;
+    annualAmountElt.textContent = newAnnualNetSalary;
+
+}
+
+
+
 // GET ALL NECESSARY DOM ELEMENT FOR TOGGLE PART
 
 // Raw salary input
@@ -54,6 +72,8 @@ fieldsetElts.forEach((fieldset) => {
                 rateAppliedElts.forEach((rate) => {
                     rate.textContent = btnClicked.dataset.rate;
                 })
+
+                updateNetFromRaw();
             }
         })
     })
@@ -61,29 +81,7 @@ fieldsetElts.forEach((fieldset) => {
 
 // --- CONVERT RAW INTO NET SALARY --- 
 
-rawSalaryElt.addEventListener("input", ()=> {
-
-    // Convert string into number
-    const rawSalaryValue = Number(rawSalaryElt.value);
-
-    // Calculate net salary
-    const netSalaryConverted = rawSalaryValue * (1 - currentRate/100);
-
-    // Calculate contributions
-    const contributions = rawSalaryValue - netSalaryConverted;
-
-    // Calculate annual net salary
-    const annualNetSalary = netSalaryConverted * 12;
-
-    // Display the result into the net salary input
-    netSalaryElt.value = netSalaryConverted;
-
-    // Display the contributions
-    contributionsElt.textContent = contributions;
-
-    // Display annual net salary
-    annualAmountElt.textContent = annualNetSalary;
-})
+rawSalaryElt.addEventListener("input", updateNetFromRaw);
 
 // --- CONVERT NET INTO RAW SALARY ---
 
@@ -98,13 +96,20 @@ netSalaryElt.addEventListener("input", () => {
     // Calculate contributions
     const contributions = rawSalaryConverted - netSalaryValue;
 
+    // Calculate annual net salary
+    const annualNetSalary = netSalaryValue * 12;
+
     // Display the raw salary into the raw salary input
     rawSalaryElt.value = rawSalaryConverted;
 
     // Display contributions
     contributionsElt.textContent = contributions;
 
+    // Display annual net salary
+    annualAmountElt.textContent = annualNetSalary;
+
 })
+
 
 
 
