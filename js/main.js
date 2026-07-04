@@ -8,13 +8,20 @@ let currentPeriod = "monthly"
 
 const updateNetFromRaw = () => {
     
-    console.log("currentRate =", currentRate, "| raw =", rawSalaryElt.value);
     const currentRawSalary = rawSalaryElt.value;
-
 
     const newNetSalary = currentRawSalary * (1 - currentRate/100);
     const newContributions = currentRawSalary - newNetSalary;
-    const newAnnualNetSalary = newNetSalary * 12;
+
+    let newAnnualNetSalary;
+
+    if (currentPeriod === "monthly") {
+        // newNetSalary is a monthly amount, multiply to get the yearly total
+        newAnnualNetSalary = newNetSalary * 12;
+    } else if (currentPeriod === "annual") {
+        // newNetSalary is already a yearly amount, nothing to multiply
+        newAnnualNetSalary = newNetSalary;
+    }
 
     netSalaryElt.value = newNetSalary.toFixed(2);
     contributionsElt.textContent = newContributions.toFixed(2);
@@ -77,6 +84,38 @@ fieldsetElts.forEach((fieldset) => {
                     rate.textContent = btnClicked.dataset.rate;
                 })
 
+                updateNetFromRaw();
+            }
+
+            // Update the period and calculation according to the button clicked
+            if (btnClicked.dataset.period) {
+
+                // Save the former value of period
+                const oldPeriod = currentPeriod;
+
+                // Period update
+                currentPeriod = btnClicked.dataset.period;
+
+                // Compare the two values 
+                if (oldPeriod === currentPeriod){
+                    return;
+                }
+
+                if (currentPeriod === "annual") {
+
+                    const rawSalary = Number(rawSalaryElt.value);
+                    const rawAnnualSalary = rawSalary * 12;
+
+                    rawSalaryElt.value = rawAnnualSalary;
+
+                } else if (currentPeriod === "monthly"){
+
+                    const rawSalary = Number(rawSalaryElt.value);
+                    const rawMonthlySalary = rawSalary / 12;
+
+                    rawSalaryElt.value = rawMonthlySalary;
+                }
+                
                 updateNetFromRaw();
             }
         })
