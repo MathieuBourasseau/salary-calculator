@@ -29,6 +29,30 @@ const updateNetFromRaw = () => {
 
 }
 
+const updateRawFromNet = () => {
+
+    const currentNetSalary = Number(netSalaryElt.value);
+
+    const newRawSalary = currentNetSalary / (1 - currentRate / 100);
+    const newContributions = newRawSalary - currentNetSalary;
+
+    let newAnnualNetSalary;
+
+    if (currentPeriod === "monthly") {
+        // currentNetSalary is a monthly amount, multiply to get the yearly total
+        newAnnualNetSalary = currentNetSalary * 12;
+    } else if (currentPeriod === "annual") {
+        // currentNetSalary is already a yearly amount, nothing to multiply
+        newAnnualNetSalary = currentNetSalary;
+    }
+
+    rawSalaryElt.value = newRawSalary.toFixed(2);
+    contributionsElt.textContent = newContributions.toFixed(2);
+    annualAmountElt.textContent = newAnnualNetSalary.toFixed(2);
+
+}
+
+
 
 // GET ALL NECESSARY DOM ELEMENT FOR TOGGLE PART
 
@@ -128,36 +152,17 @@ rawSalaryElt.addEventListener("input", updateNetFromRaw);
 
 // --- CONVERT NET INTO RAW SALARY ---
 
-netSalaryElt.addEventListener("input", () => {
+netSalaryElt.addEventListener("input", updateRawFromNet);
 
-    // Convert string into number
-    const netSalaryValue = Number(netSalaryElt.value);
+// --- CONVERTER BUTTON --- 
 
-    // Calculate raw salary
-    const rawSalaryConverted = netSalaryValue / (1 - currentRate / 100);
+converterButtonElt.addEventListener("click", () => {
 
-    // Calculate contributions
-    const contributions = rawSalaryConverted - netSalaryValue;
+    // Take the current raw salary and treat it as if it had been typed into "Salaire net"
+    const formerRawSalary = rawSalaryElt.value;
 
-    let annualNetSalary;
-
-    if (currentPeriod === "monthly") {
-        // netSalaryValue is a monthly amount, multiply to get the yearly total
-        annualNetSalary = netSalaryValue * 12;
-    } else if (currentPeriod === "annual") {
-        // netSalaryValue is already a yearly amount, nothing to multiply
-        annualNetSalary = netSalaryValue;
-    }
-
-
-    // Display the raw salary into the raw salary input
-    rawSalaryElt.value = rawSalaryConverted.toFixed(2);
-
-    // Display contributions
-    contributionsElt.textContent = contributions.toFixed(2);
-
-    // Display annual net salary
-    annualAmountElt.textContent = annualNetSalary.toFixed(2);
+    netSalaryElt.value = formerRawSalary;
+    updateRawFromNet();
 
 })
 
