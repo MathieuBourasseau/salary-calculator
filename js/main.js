@@ -7,10 +7,10 @@ let currentPeriod = "monthly"
 // --- ARROW FUNCTION TO UPDATE CONVERTION --- 
 
 const updateNetFromRaw = () => {
-    
+
     const currentRawSalary = rawSalaryElt.value;
 
-    const newNetSalary = currentRawSalary * (1 - currentRate/100);
+    const newNetSalary = currentRawSalary * (1 - currentRate / 100);
     const newContributions = currentRawSalary - newNetSalary;
 
     let newAnnualNetSalary;
@@ -97,7 +97,7 @@ fieldsetElts.forEach((fieldset) => {
                 currentPeriod = btnClicked.dataset.period;
 
                 // Compare the two values 
-                if (oldPeriod === currentPeriod){
+                if (oldPeriod === currentPeriod) {
                     return;
                 }
 
@@ -108,14 +108,14 @@ fieldsetElts.forEach((fieldset) => {
 
                     rawSalaryElt.value = rawAnnualSalary;
 
-                } else if (currentPeriod === "monthly"){
+                } else if (currentPeriod === "monthly") {
 
                     const rawSalary = Number(rawSalaryElt.value);
                     const rawMonthlySalary = rawSalary / 12;
 
                     rawSalaryElt.value = rawMonthlySalary;
                 }
-                
+
                 updateNetFromRaw();
             }
         })
@@ -134,13 +134,21 @@ netSalaryElt.addEventListener("input", () => {
     const netSalaryValue = Number(netSalaryElt.value);
 
     // Calculate raw salary
-    const rawSalaryConverted = netSalaryValue / (1 - currentRate/100);
+    const rawSalaryConverted = netSalaryValue / (1 - currentRate / 100);
 
     // Calculate contributions
     const contributions = rawSalaryConverted - netSalaryValue;
 
-    // Calculate annual net salary
-    const annualNetSalary = netSalaryValue * 12;
+    let annualNetSalary;
+
+    if (currentPeriod === "monthly") {
+        // netSalaryValue is a monthly amount, multiply to get the yearly total
+        annualNetSalary = netSalaryValue * 12;
+    } else if (currentPeriod === "annual") {
+        // netSalaryValue is already a yearly amount, nothing to multiply
+        annualNetSalary = netSalaryValue;
+    }
+
 
     // Display the raw salary into the raw salary input
     rawSalaryElt.value = rawSalaryConverted.toFixed(2);
