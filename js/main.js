@@ -1,6 +1,9 @@
 // Rate applied
 let currentRate = 22;
 
+// Monthly or annual salary
+let currentPeriod = "monthly"
+
 // --- ARROW FUNCTION TO UPDATE CONVERTION --- 
 
 const updateNetFromRaw = () => {
