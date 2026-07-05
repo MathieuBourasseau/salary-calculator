@@ -10,6 +10,15 @@ const updateNetFromRaw = () => {
 
     const currentRawSalary = rawSalaryElt.value;
 
+    if (!currentRawSalary || currentRawSalary <= 0){
+        
+        return
+    }
+
+    if(isNaN(currentRawSalary)){
+        return
+    }
+
     const newNetSalary = currentRawSalary * (1 - currentRate / 100);
     const newContributions = currentRawSalary - newNetSalary;
 
