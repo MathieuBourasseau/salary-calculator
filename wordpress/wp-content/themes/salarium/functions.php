@@ -8,7 +8,7 @@ function salarium_enqueue_assets() {
         'salarium-style',                                    
         get_template_directory_uri() . '/dist/output.css',    
         array(),                                             
-        '1.0'                                                 /
+        '1.0'                                                 
     );
 
     // Js

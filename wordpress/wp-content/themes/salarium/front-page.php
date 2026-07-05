@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur de salaire</title>
+
+    <!-- Load style put in functions.php -->
+    <?php wp_head(); ?>  
+</head>
+
+<body class="bg-light-grey">
+
+    <!-- Explanations for the style : -->
+    <!-- When there is "md" in the class, it is the style for tablet  -->
+    <!-- When there is "lg" in the class, it is the style for desktop  -->
+    <!-- When nothing special is written it means that the style is for mobile, tablets and desktop  -->
+
+
+    <!-- HEADER PART -->
+    <header class="border-b-1 border-dark-grey">
+        <nav class="
+            flex w-full p-4 text-sm justify-between items-center font-geist font-medium cursor-pointer max-w-2xl mx-auto md:gap-1
+            lg:max-w-desktop-content"
+        >
+
+            <div class="flex items-center gap-2">
+                <img src="<?php echo get_template_directory_uri(); ?>/public/img/Background.svg" alt="Logo de l'entreprise Salarium">
+                <a href="#" class="hidden md:block font-instrument-serif font-normal text-base lg:text-22px">
+                    Salarium<span class="text-text-grey italic text-11px md:text-sm">.fr</span>
+                </a>
+            </div>
+
+            <ul class="flex items-center gap-2 text-sm">
+                <li><a href="#">Outils</a></li>
+                <li><a href="#">Guides</a></li>
+                <li><a href="#">Tarifs</a></li>
+                <li><a href="#">À propos</a></li>
+                <li><a class="text-white py-1 px-1 bg-black rounded-xs lg:py-9px lg:px-14px" href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN AND SECTION PART -->
+    <main class="max-w-2xl mx-auto lg:max-w-desktop-content">
+
+        <section class="flex flex-col py-6 px-4 gap-2 md:gap-4">
+
+            <!-- TEXT ABOVE CONVERTER -->
+            <div class="flex flex-col gap-4 lg:max-w-2xl">
+                <p class="flex items-center gap-2 text-12px uppercase text-text-grey">
+                    <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
+                    outil · calculateur
+                </p>
+                <h1 class="
+                    font-instrument-serif font-normal text-2xl
+                    md:text-4xl
+                    lg:text-56px"
+                >
+                    Convertissez votre <span class="italic text-dark-green">salaire brut en net</span>, en un coup
+                    d'oeil.
+                </h1>
+                <p class="
+                    text-sm
+                    md:text-17px text-text-grey"
+                >
+                    Saisissez un montant dans l'un ou l'autre champ — la conversion se fait automatiquement, selon votre statut et la période choisie.
+                </p>
+
+                <!-- Error message part -->
+                <div class="hidden flex flex-col text-sm" id="error-container">
+                    <span class="flex items-center gap-2 text-red-500" id="error-not-a-number">
+                        <img src="<?php echo get_template_directory_uri(); ?>/public/img/error-logo.svg" class="text-red-500 h-[18px] w-[18px]" alt="Message d'erreur en cas de saisie incorrecte.">
+                        <span>Veuillez saisir des chiffres et non du texte.</span>
+                    </span>
+                    <span class="flex items-center gap-2 text-red-500" id="error-negative-value">
+                        <img src="<?php echo get_template_directory_uri(); ?>/public/img/error-logo.svg" class="text-red-500 h-[18px] w-[18px]" alt="Message d'erreur en cas de saisie incorrecte.">
+                        <span>La valeur saisie ne peut être inférieure ou égale à zéro.</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- BLOC WITH CONVERTER -->
+            <form class="
+                flex flex-col gap-4 bg-white rounded-sm p-2 border-1 border-dark-grey shadow-card
+                md:p-4 md:rounded-lg
+                lg:rounded-[14px] lg:grid lg:grid-cols-2 lg:pl-32px lg:px-0 lg:py-0"
+            >
+
+                <!-- FIRST CONTAINER WITH USER OPTIONS -->
+                <div class="flex flex-col gap-4 font-geist lg:py-10 lg:px-4">
+
+                    <!-- CATEGORIES PART -->
+                    <div class="flex justify-between items-center">
+                        <fieldset class="toggle-group flex items-center bg-medium-grey p-1 text-13px gap-2 rounded-md font-geist">
+                            <!-- Legend is only readable by screen reader -->
+                            <legend class="sr-only">Statut</legend>
+                            <button type="button" class="toggle-active p-1 cursor-pointer" data-rate="22">Non-cadre</button>
+                            <button type="button" class="p-1 cursor-pointer" data-rate="25">Cadre</button>
+                        </fieldset>
+
+                        <!-- PERIODE -->
+                        <fieldset class="toggle-group flex gap-2 bg-medium-grey p-1 rounded-md items-center text-13px">
+                            <legend class="sr-only">Périodicité</legend>
+                            <button type="button" class="toggle-active p-1 cursor-pointer" data-period="monthly">Mensuel</button>
+                            <button type="button" class="p-1 cursor-pointer" data-period="annual">Annuel</button>
+                        </fieldset>
+                    </div>
+
+                    <!-- RAW SALARY PART -->
+                    <div class="lg:flex lg:flex-col gap-2">
+                        <div class="flex justify-between text-sm text-text-grey">
+                            <label for="raw-salary">Salaire brut</label>
+                            <span>avant cotisations salariales</span>
+                        </div>
+
+                        <!-- USER RAW SALARY INPUT -->
+                        <div class="
+                            border-1 border-dark-grey rounded-sm flex justify-between p-2 items-center
+                            lg:rounded-lg"
+                        >
+                            <input
+                                type="text"
+                                class="p-2 w-full outline-none font-instrument-serif text-lg lg:text-34px"
+                                id="raw-salary"
+                            >
+                            <img src="<?php echo get_template_directory_uri(); ?>/public/img/€.svg" class="w-5 h-5 shrink-0" alt="logo euro pour convertir son salaire">
+                        </div>
+
+                    </div>
+
+                    <!-- CONVERTER BUTTON PART -->
+                    <div class="flex justify-between items-center">
+                        <div class="flex-1 h-[1px] bg-dark-grey"></div>
+                        <button class="px-2" type="button" id="converter-button">
+                            <img src="<?php echo get_template_directory_uri(); ?>/public/img/Button - Inverser brut et net.svg" alt="Bouton pour inverser">
+                        </button>
+                        <div class="flex-1 h-[1px] bg-dark-grey"></div>
+                    </div>
+
+                    <div class="lg:flex lg:flex-col gap-2">
+
+                        <!-- NET PAY PART-->
+                        <div class="flex justify-between text-sm text-text-grey">
+                            <label for="net-salary">Salaire net</label>
+                            <span>avant impôt sur le revenu</span>
+                        </div>
+
+                        <!-- USER NET PAY INPUT -->
+                        <div class="
+                            border-1 border-dark-grey rounded-sm flex justify-between p-2 items-center
+                            lg:rounded-lg"
+                        >
+                            <input
+                                type="text"
+                                class="p-2 w-full outline-none font-instrument-serif text-lg lg:text-34px"
+                                id="net-salary"
+                            >
+                            <img src="<?php echo get_template_directory_uri(); ?>/public/img/€.svg" class="w-5 h-5 shrink-0" alt="logo euro pour convertir son salaire">
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SECOND PART : CONVERTER RESULTS -->
+                <div class="lg:mt-4 lg:border-l lg:border-dark-grey">
+
+                    <!-- CONTAINER WITH LIGHT BROWN BACKGROUND -->
+                    <div class="bg-light-brown flex flex-col gap-4 px-8 py-4">
+
+                        <!-- TOP PART -->
+                        <div class="flex flex-col gap-[13px]">
+                            <p class="uppercase text-11px text-text-grey font-geist font-medium">Taux appliqué</p>
+                            <p class="
+                                flex font-instrument-serif text-4xl font-normal
+                                lg:text-88px"
+                            >
+                                <span class="rate-applied">22</span><span class="
+                                    text-22px
+                                    text-text-grey
+                                    md:text-base
+                                    lg:text-3xl lg:pt-4">%</span>
+                            </p>
+                            <p class="text-13px text-text-grey mb-4 lg:max-w-1/2">Statut non-cadre — environ <span class="rate-applied">22</span>% de cotisations
+                                salariales déduites du brut.</p>
+                        </div>
+
+                        <!-- LINE PART -->
+                         <div class="md:h-[1px] md:bg-dark-grey"></div>
+
+                        <!-- LOW PART -->
+
+                        <div class="grid grid-cols-2 gap-32px pt-2 pb-32px">
+
+                            <!-- COTISATIONS PART -->
+                            <div class="
+                                    flex flex-col gap-[4px]
+                                ">
+                                <p class="text-12px text-text-grey">
+                                    Cotisations
+                                </p>
+                                <div class="flex items-center">
+                                    <p class="text-22px font-instrument-serif" id="contributions">660</p>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/public/img/second-euro-picto.svg" alt="symbole euro du convertisseur de salaires" class="w-3 h-3 shrink-0">
+                                </div>
+                            </div>
+
+                            <!-- MONTHS PART -->
+                            <div class="
+                                    flex flex-col gap-[4px]
+                                ">
+                                <p class="text-12px text-text-grey">
+                                    Sur 12 mois (net)
+                                </p>
+                                <div class="flex items-center">
+                                    <p class="text-22px font-instrument-serif" id="annual-amount">28 080</p>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/public/img/second-euro-picto.svg" alt="symbole euros du convertisseur de salaire" class="w-3 h-3 shrink-0">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+            <!-- INFORMATION PART -->
+
+            <div class="flex items-start gap-[2px] lg:max-w-1/2">
+                <img src="<?php echo get_template_directory_uri(); ?>/public/img/warning-button.svg" alt="Pictogramme d'avertissement">
+                <p class="text-12px text-text-grey">Estimation à titre indicatif, basée sur un taux moyen de cotisations
+                    salariales (22 % non-cadre, 25 % cadre). Le montant réel dépend de votre convention collective,
+                    primes, mutuelle et avantages. </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER PART -->
+
+    <footer class="border-t-1 border-dark-grey pb-4 text-text-grey text-13px">
+
+        <div class="flex flex-col p-7 items-center gap-4 lg:flex-row lg:mx-auto lg:justify-between lg:max-w-desktop-content">
+
+            <!-- COPYRIGHT -->
+            <div>
+                © 2026 Salarium · Made in France
+            </div>
+
+            <!-- LEGAL MENTIONS -->
+            <ul class="flex justify-between items-center gap-2 text-center cursor-pointer">
+                <li>
+                    <a href="#">Mentions légales</a>
+                </li>
+                <li>
+                    <a href="#">CGU</a>
+                </li>
+                <li>
+                    <a href="#">Politique de confidentialité</a>
+                </li>
+                <li>
+                    <a href="#">Cookies</a>
+                </li>
+            </ul>
+
+        </div>
+    </footer>
+
+    <!-- Script is load from functions.php -->
+    <?php wp_footer(); ?>
+</body>
+</html>
