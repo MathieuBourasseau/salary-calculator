@@ -21,6 +21,8 @@ function salarium_render_calculator() {
             echo "Erreur : veuillez remplir tous les champs.";
         } elseif (!is_numeric($gross_salary) || !is_numeric($contribution_rate)) {
             echo "Erreur : veuillez remplir les champs avec des chiffres.";
+        } elseif ($gross_salary <= 0 || $contribution_rate <= 0) {
+            echo "Erreur : les valeurs doivent être supérieures à zéro.";
         } else {
             echo "Salaire brut reçu" . $gross_salary . "Taux reçu" . $contribution_rate;
         }
