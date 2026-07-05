@@ -16,11 +16,13 @@ function salarium_render_calculator() {
         $gross_salary = $_POST['gross_salary'];
         $contribution_rate = $_POST['contribution_rate'];
 
-        // Check if the data in form are valid
+        // Check if form data are valid
         if (empty($gross_salary) || empty($contribution_rate)) {
             echo "Erreur : veuillez remplir tous les champs.";
+        } elseif (!is_numeric($gross_salary) || !is_numeric($contribution_rate)) {
+            echo "Erreur : veuillez remplir les champs avec des chiffres.";
         } else {
-            echo "Brut reçu : " . $gross_salary . " / Taux reçu : " . $contribution_rate;
+            echo "Salaire brut reçu" . $gross_salary . "Taux reçu" . $contribution_rate;
         }
     }
     ?>
