@@ -9,15 +9,28 @@ let currentPeriod = "monthly"
 const updateNetFromRaw = () => {
 
     const currentRawSalary = rawSalaryElt.value;
-
-    if (!currentRawSalary || currentRawSalary <= 0){
-        
-        return
-    }
-
+    
+    // Checking if this is a number or not
     if(isNaN(currentRawSalary)){
-        return
+
+        errorBlocElt.classList.remove("hidden");
+        negativeErrorElt.classList.add("hidden");
+        notNumberErrorElt.classList.remove("hidden");
+
+        return;
     }
+
+    // Checking if the salary is positive
+    if (!currentRawSalary || currentRawSalary <= 0){
+
+        errorBlocElt.classList.remove("hidden");
+        notNumberErrorElt.classList.add("hidden");
+        negativeErrorElt.classList.remove("hidden");
+
+        return;
+    }
+
+    errorBlocElt.classList.add("hidden");
 
     const newNetSalary = currentRawSalary * (1 - currentRate / 100);
     const newContributions = currentRawSalary - newNetSalary;
@@ -63,7 +76,11 @@ const updateRawFromNet = () => {
 
 
 
-// GET ALL NECESSARY DOM ELEMENT FOR TOGGLE PART
+// GET ALL NECESSARY DOM ELEMENTS
+
+const errorBlocElt = document.getElementById("error-container");
+const negativeErrorElt = document.getElementById("error-negative-value");
+const notNumberErrorElt = document.getElementById("error-not-a-number");
 
 // Raw salary input
 const rawSalaryElt = document.getElementById("raw-salary");
