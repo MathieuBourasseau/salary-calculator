@@ -24,7 +24,8 @@ function salarium_render_calculator() {
         } elseif ($gross_salary <= 0 || $contribution_rate <= 0) {
             echo "Erreur : les valeurs doivent être supérieures à zéro.";
         } else {
-            echo "Salaire brut reçu" . $gross_salary . "Taux reçu" . $contribution_rate;
+            $net_salary = $gross_salary * (1 - $contribution_rate/100);
+            echo "Salaire net :" . $net_salary "€";
         }
     }
     ?>
