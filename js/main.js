@@ -55,6 +55,28 @@ const updateRawFromNet = () => {
 
     const currentNetSalary = Number(netSalaryElt.value);
 
+     // Checking if this is a number or not
+    if(isNaN(currentNetSalary)){
+
+        errorBlocElt.classList.remove("hidden");
+        negativeErrorElt.classList.add("hidden");
+        notNumberErrorElt.classList.remove("hidden");
+
+        return;
+    }
+
+    // Checking if the salary is positive
+    if (!currentNetSalary || currentNetSalary <= 0){
+
+        errorBlocElt.classList.remove("hidden");
+        notNumberErrorElt.classList.add("hidden");
+        negativeErrorElt.classList.remove("hidden");
+
+        return;
+    }
+
+    errorBlocElt.classList.add("hidden");
+
     const newRawSalary = currentNetSalary / (1 - currentRate / 100);
     const newContributions = newRawSalary - currentNetSalary;
 
