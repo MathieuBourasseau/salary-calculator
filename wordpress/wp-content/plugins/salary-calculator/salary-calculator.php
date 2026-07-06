@@ -25,7 +25,7 @@ function salarium_render_calculator() {
             echo "Erreur : les valeurs doivent être supérieures à zéro.";
         } else {
             $net_salary = $gross_salary * (1 - $contribution_rate/100);
-            echo "Salaire net :" . $net_salary "€";
+            echo "Salaire net : " . $net_salary . " €";
         }
     }
     ?>
